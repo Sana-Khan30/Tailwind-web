@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="images/wheel2-removebg-preview.png" type="image/x-icon">
+  <title>Elite Motors</title>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wine: "#7B0323", /* Updated color */
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Simple Carousel Animation */
+    .carousel-item { display: none; }
+    .carousel-item.active { display: block; }
+    /* Custom Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .animate-fadeIn { animation: fadeIn 1.2s ease-in-out; }
+
+    @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .animate-slideUp { animation: slideUp 1s ease-out; }
+
+    @keyframes zoomHover { from { transform: scale(1); } to { transform: scale(1.05); } }
+    .hover-zoom:hover { transform: scale(1.05); transition: 0.4s ease; }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+
+  <!-- 🔥 NAVBAR -->
+  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold text-wine">ELITE MOTORS</h1>
+
+      <ul class="hidden md:flex space-x-8 text-lg">
+        <li><a href="#about" class="hover:text-wine duration-300">About</a></li>
+        <li><a href="#cars" class="hover:text-wine duration-300">Cars</a></li>
+        <li><a href="#services" class="hover:text-wine duration-300">Services</a></li>
+        <li><a href="#contact" class="hover:text-wine duration-300">Contact</a></li>
+      </ul>
+
+      <button id="menuBtn" class="md:hidden text-white text-3xl">&#9776;</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden flex-col px-6 pb-4 space-y-4 md:hidden">
+      <a href="#about" class="hover:text-wine">About</a>
+      <a href="#cars" class="hover:text-wine">Cars</a>
+      <a href="#services" class="hover:text-wine">Services</a>
+      <a href="#contact" class="hover:text-wine">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- 🔥 CAROUSEL (Replaces Hero) -->
+  <section class="pt-20 pb-10 bg-black">
+    <div class="max-w-5xl mx-auto relative">
+
+      <div id="carousel" class="rounded-xl overflow-hidden shadow-xl">
+        <img class="carousel-item active w-full h-[70vh] object-cover" src="./images/feature.webp" />
+        <img class="carousel-item w-full h-[70vh] object-cover" src="./images/Porsche 992 GT3 Roadtrip - Brandon Lim.png" />
+        <img class="carousel-item w-full h-[70vh] object-cover" src="./images/Luxury Cars.png" />
+      </div>
+
+      <!-- Buttons -->
+      <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-wine p-3 rounded-full opacity-80 hover:scale-110 duration-300">&#10094;</button>
+      <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-wine p-3 rounded-full opacity-80 hover:scale-110 duration-300">&#10095;</button>
+
+    </div>
+  </section>
+
+
+  <!-- 🔥 ABOUT SECTION -->
+  <section id="about" class="py-24 px-6 max-w-6xl mx-auto animate-slideUp">
+    <h2 class="text-4xl font-bold text-center text-wine mb-6">About Us</h2>
+    <p class="text-center text-gray-300 max-w-3xl mx-auto">
+      Elite Motors brings you an exclusive collection of luxury and performance vehicles.
+      With unmatched quality and exceptional service, we make your dream car a reality.
+    </p>
+  </section>
+
+
+  <!-- 🔥 FEATURED CARS -->
+  <section id="cars" class="py-24 bg-white text-black">
+    <h2 class="text-4xl font-bold text-center text-wine mb-12">Featured Cars</h2>
+
+    <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto px-6">
+
+      <div class="bg-black text-white p-6 rounded-xl shadow-xl hover-zoom duration-300 animate-fadeIn">
+        <img src="./images/Lamborgini.jpg" class="rounded-lg mb-4 h-56 w-full object-cover">
+        <h3 class="text-2xl font-semibold">Lamborghini Huracán</h3>
+        <p class="mt-2 text-gray-300">V10 Supercar • 610 HP</p>
+      </div>
+
+      <div class="bg-black text-white p-6 rounded-xl shadow-xl hover-zoom duration-300 animate-fadeIn">
+        <img src="./images/card2.png" class="rounded-lg mb-4 h-56 w-full object-cover">
+        <h3 class="text-2xl font-semibold">Ferrari 488 GTB</h3>
+        <p class="mt-2 text-gray-300">Twin-Turbo V8 • 661 HP</p>
+      </div>
+
+      <div class="bg-black text-white p-6 rounded-xl shadow-xl hover-zoom duration-300 animate-fadeIn">
+        <img src="./images/card 1.png" class="rounded-lg mb-4 h-56 w-full object-cover">
+        <h3 class="text-2xl font-semibold">Porsche 911 Turbo S</h3>
+        <p class="mt-2 text-gray-300">Flat-6 Twin Turbo • 640 HP</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 🔥 SERVICES -->
+  <section id="services" class="py-24 px-6 max-w-6xl mx-auto animate-slideUp">
+    <h2 class="text-4xl font-bold text-center text-wine mb-12">Our Services</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="p-8 bg-black rounded-xl border border-wine hover:scale-105 duration-300">
+        <h3 class="text-2xl font-semibold mb-3 text-wine">Car Rentals</h3>
+        <p class="text-gray-300">Rent luxury cars for events, trips, weddings & more.</p>
+      </div>
+
+      <div class="p-8 bg-black rounded-xl border border-wine hover:scale-105 duration-300">
+        <h3 class="text-2xl font-semibold mb-3 text-wine">Car Customization</h3>
+        <p class="text-gray-300">Premium wraps, detailing, interior upgrades & tuning.</p>
+      </div>
+
+      <div class="p-8 bg-black rounded-xl border border-wine hover:scale-105 duration-300">
+        <h3 class="text-2xl font-semibold mb-3 text-wine">Car Buying Assistance</h3>
+        <p class="text-gray-300">We help you find and import your dream car safely.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 🔥 CONTACT -->
+  <section id="contact" class="py-24 bg-wine text-white">
+    <h2 class="text-4xl font-bold text-center mb-6">Contact Us</h2>
+    <p class="text-center max-w-2xl mx-auto mb-10">
+      Have any questions? Want to book a luxury ride? We're here to help!
+    </p>
+
+    <form class="max-w-xl mx-auto space-y-6">
+      <input class="w-full p-3 rounded text-black" type="text" placeholder="Your Name">
+      <input class="w-full p-3 rounded text-black" type="email" placeholder="Email Address">
+      <textarea class="w-full p-3 rounded text-black" rows="4" placeholder="Your Message"></textarea>
+      <button class="w-full bg-black py-3 rounded text-lg hover:bg-white hover:text-black duration-300">
+        Send Message
+      </button>
+    </form>
+  </section>
+
+
+  <!-- 🔥 FOOTER WITH PREMIUM LINE ICONS -->
+  <footer class="bg-black text-center py-10 text-gray-400">
+    <div class="flex justify-center space-x-8 mb-4 text-3xl">
+      <i class="uil uil-facebook hover:text-wine duration-300"></i>
+      <i class="uil uil-instagram hover:text-wine duration-300"></i>
+      <i class="uil uil-twitter hover:text-wine duration-300"></i>
+      <i class="uil uil-car-sideview hover:text-wine duration-300"></i>
+    </div>
+    © 2025 Elite Motors — All Rights Reserved.
+  </footer>
+
+  <!-- Icons -->
+  <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet" />
+
+
+  <!-- Mobile Menu JS -->
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    // Carousel Logic
+    const items = document.querySelectorAll(".carousel-item");
+    let index = 0;
+
+    function showSlide(i) {
+      items.forEach((item) => item.classList.remove("active"));
+      items[i].classList.add("active");
+    }
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      index = (index + 1) % items.length;
+      showSlide(index);
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      index = (index - 1 + items.length) % items.length;
+      showSlide(index);
+    });
+
+    setInterval(() => {
+      index = (index + 1) % items.length;
+      showSlide(index);
+    }, 4000);
+  </script>
+
+</body>
+</html>
